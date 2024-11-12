@@ -38,11 +38,20 @@ export default function Register() {
 
     }
 
+    const testing = (e) => {
+
+        e.preventDefault();
+
+    }
+
     return <React.Fragment>
 
         <div className={`common_container ${authCSS.container}`}>
 
-            <motion.form variants={fromVariants} initial='hidden' animate='visible' className={authCSS.form}>
+            <motion.form 
+                variants={fromVariants} initial='hidden' animate='visible' className={authCSS.form}
+                onSubmit={testing}
+            >
 
                 <div className={authCSS.form_header}>
                     <img src={require('../Images/logo-g-b.png')} alt="" />
