@@ -1,0 +1,128 @@
+.input_cont{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.input_cont .label{
+
+    font-size: 1rem;
+    color: var(--r-black-color);
+
+}
+
+.input_cont input{
+
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    font-size: 1rem;
+    color: var(--r-black-color);
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid var(--b-gray-color);
+    background-color: transparent;
+    transition: 0.3s;
+
+    &:focus{
+
+        border-color: var(--m-green-color);
+
+    }
+
+}
+
+/* === loader === */
+
+.loader {
+
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    width: 20px;
+    height: 10px;
+    background: linear-gradient(var(--m-green-color) calc(1 * 100% / 6),
+            transparent 0 calc(3 * 100% / 6),
+            var(--m-green-color) 0),
+        linear-gradient(var(--m-green-color) calc(2 * 100% / 6),
+            transparent 0 calc(4 * 100% / 6),
+            var(--m-green-color) 0),
+        linear-gradient(var(--m-green-color) calc(3 * 100% / 6),
+            transparent 0 calc(5 * 100% / 6),
+            var(--m-green-color) 0);
+    background-size: 5px 400%;
+    background-repeat: no-repeat;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+
+@keyframes matrix {
+    0% {
+        background-position: 0% 100%, 50% 100%, 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%, 50% 0%, 100% 0%;
+    }
+}
+
+.input_cont:focus-within .loader {
+
+    opacity: 1;
+    visibility: visible;
+    animation: matrix 1s infinite linear;
+
+}
+
+.eyes_cont {
+
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 40px;
+    cursor: pointer;
+
+}
+
+.eyes_cont span {
+
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.eyes_cont span svg {
+
+    font-size: 24px;
+    color: var(--m-green-color);
+
+}
+
+.form_link{
+
+    font-size: 1rem;
+    text-decoration: underline;
+    color: var(--m-green-color);
+
+}
+
+.submit{
+
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+    color: var(--f-white-color);
+    border: none;
+    border-radius: 5px;
+    background-color: var(--m-green-color);
+    cursor: pointer;
+
+}
