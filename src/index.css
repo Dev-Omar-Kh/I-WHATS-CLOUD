@@ -22,8 +22,10 @@
 
     /* === custom-colors === */
 
+    --f-white-color-08: rgba(252, 245, 235, 0.8);
     --r-black-color-01: rgba(17, 27, 33, 0.1);
-    --m-green-color-09: rgba(37, 211, 102, 0.75);
+    --m-green-color-09: rgba(37, 211, 102, 0.5);
+    --shadow-color: rgba(17, 27, 33, 0.1);
 
 }
 
