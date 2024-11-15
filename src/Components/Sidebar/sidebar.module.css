@@ -1,0 +1,184 @@
+.container{
+
+    width: 100%;
+    height: 100%;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+        linear-gradient(to bottom right, var(--m-green-color-09), var(--m-green-color)), 
+        url('../../Images/sidebar-bg.jpg')
+    ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.logo{
+
+    width: 100%;
+    height: 100px;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo a{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.logo a img{
+
+    height: 100%;
+
+}
+
+.logo button{
+
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--f-white-color);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.nav{
+
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+}
+
+.nav::-webkit-scrollbar{
+
+    width: 5px;
+
+}
+
+.nav::-webkit-scrollbar-thumb{
+
+    background-color: var(--f-white-color-05);
+
+}
+
+.nav_sec{
+    
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.nav_sec_header{
+
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--f-white-color-05);
+
+}
+
+.nav_sec_header span{
+
+    display: inline-block;
+    height: 0.5px;
+    width: 100%;
+    background-color: var(--f-white-color-05);
+
+}
+
+.nav a , .nav button{
+
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--f-white-color-08);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+
+        color: var(--f-white-color);
+
+    }
+
+}
+
+.nav button{
+
+    justify-content: space-between;
+
+}
+
+.nav button div{
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.arrowList{
+
+    transition: 0.3s;
+
+}
+
+.nav a svg , .nav button svg{
+
+    font-size: 1.25rem;
+
+}
+
+.link_det{
+
+    padding: 0px 45px;
+    overflow: hidden;
+
+}
+
+.link_det a{
+
+    padding: 10px 0px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+
+}
+
+/* ====== responsive-style ====== */
+
+@media(max-width: 900px){
+
+    .logo{
+
+        padding-inline: 20px;
+        justify-content: space-between;
+
+    }
+
+}
