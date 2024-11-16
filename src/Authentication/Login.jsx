@@ -6,6 +6,8 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 import authCSS from './auth.module.css';
 import formCSS from '../Styles/forms.module.css';
+import Auth from './Auth';
+import { IoMdUnlock } from 'react-icons/io';
 
 export default function Login() {
 
@@ -43,51 +45,63 @@ export default function Login() {
 
     return <React.Fragment>
 
-        <div className={`common_container ${authCSS.container}`}>
+        <div className={`${authCSS.container}`}>
 
-            <motion.form 
-                variants={fromVariants} initial='hidden' animate='visible' className={authCSS.form}
-                onSubmit={testing}
-            >
+            <div className={authCSS.form_cont}>
 
-                <div className={authCSS.form_header}>
-                    <img src={require('../Images/logo-g-b.png')} alt="" />
-                </div>
+                <motion.form 
+                    variants={fromVariants} initial='hidden' animate='visible' className={authCSS.form}
+                    onSubmit={testing}
+                >
 
-                <div className={formCSS.input_cont}>
-
-                    <div className={formCSS.loader}></div>
-
-                    <label htmlFor="">
-                        <span className={formCSS.label}>Email :</span>
-                    </label>
-
-                    <input type="text" id="email" />
-
-                </div>
-
-                <div className={formCSS.input_cont}>
-
-                    <div onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}>
-                        {password ?
-                            <motion.span key={'h1'} variants={eyeVariants}><BsEyeSlash /></motion.span> :
-                            <motion.span key={'s1'} variants={eyeVariants}><BsEye /></motion.span>
-                        }
+                    <div className={authCSS.form_header}>
+                        <IoMdUnlock />
+                        <span>Login</span>
                     </div>
 
-                    <label htmlFor="">
-                        <span className={formCSS.label}>Password :</span>
-                    </label>
+                    <div className={formCSS.input_cont}>
 
-                    <input type={password ? "text" : "password"} id="password" />
+                        <div className={formCSS.loader}></div>
 
-                </div>
+                        <label htmlFor="">
+                            <span className={formCSS.label}>Email :</span>
+                        </label>
 
-                <Link to={'/register'} className={formCSS.form_link}>Don't have an account?</Link>
+                        <input type="text" id="email" placeholder='Enter your email' />
 
-                <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>Login</motion.button>
+                    </div>
 
-            </motion.form>
+                    <div className={formCSS.input_cont}>
+
+                        <div onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}>
+                            {password ?
+                                <motion.span key={'h1'} variants={eyeVariants}><BsEyeSlash /></motion.span> :
+                                <motion.span key={'s1'} variants={eyeVariants}><BsEye /></motion.span>
+                            }
+                        </div>
+
+                        <label htmlFor="">
+                            <span className={formCSS.label}>Password :</span>
+                        </label>
+
+                        <input type={password ? "text" : "password"} id="password" placeholder='Enter your password' />
+
+                    </div>
+
+                    <Link to={'/register'} className={formCSS.form_link}>Don't have an account?</Link>
+
+                    <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>Login</motion.button>
+
+                </motion.form>
+
+            </div>
+
+            <Auth 
+                message={`
+                    Welcome back to I-Whats-Cloud. Please log in to access the site's features. 
+                    If you don't have an account, kindly create one to get started.
+                `} 
+            />
 
         </div>
 

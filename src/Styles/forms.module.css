@@ -34,6 +34,13 @@
 
     }
 
+    &::-webkit-input-placeholder{
+
+        color: var(--r-black-color);
+        opacity: 0.4;
+
+    }
+
 }
 
 /* === loader === */
@@ -104,6 +111,122 @@
 
     font-size: 24px;
     color: var(--m-green-color);
+
+}
+
+.select_cont{
+
+    position: relative;
+    width: 100%;
+    height: 40px;
+
+}
+
+.select{
+
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    border: 2px solid var(--b-gray-color);
+    cursor: pointer;
+
+}
+
+.select p{
+
+    font-size: 1rem;
+    color: var(--r-black-color);
+
+}
+
+.select svg{
+
+    font-size: 1.25rem;
+    color: var(--b-gray-color);
+    transition: 0.3s;
+
+}
+
+.options_cont{
+
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    max-height: 250px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid var(--m-green-color);
+    border-top: none;
+    background-color: var(--f-white-color);
+    box-shadow: 0px 0px 10px var(--shadow-color);
+    overflow: hidden;
+    /* overflow: auto; */
+    z-index: 1;
+
+}
+
+.search_select{
+
+    width: 100%;
+    padding: 10px;
+
+}
+
+.search_select input{
+
+    padding: 0px 10px;
+    border-color: var(--m-green-color);
+
+}
+
+.options_scroll{
+
+    max-height: 190px;
+    overflow: auto;
+
+}
+
+.options_scroll::-webkit-scrollbar-thumb {
+
+    background-color: var(--m-green-color);
+
+}
+
+.option{
+
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--r-black-color);
+    background-color: var(--f-white-color);
+    border-top: 1px solid var(--m-green-color);
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover{
+
+        color: var(--f-white-color);
+        background-color: var(--m-green-color);
+
+    }
+
+    &:first-child{
+
+        border-top: none !important;
+
+    }
+
+}
+
+.selected_option{
+
+    color: var(--f-white-color);
+    background-color: var(--m-green-color);
 
 }
 
