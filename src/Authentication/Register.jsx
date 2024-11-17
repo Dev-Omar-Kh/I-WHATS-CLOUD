@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -40,8 +40,6 @@ export default function Register() {
         cd.name.replace(/\s+/g, '').toLowerCase().includes(filterTextCd.replace(/\s+/g, '').toLowerCase())
     );
 
-
-
     // ====== display-drop-list ====== //
 
     const [displayDropList, setDisplayDropList] = useState({list1: false, list2: false});
@@ -54,6 +52,31 @@ export default function Register() {
         }));
 
     }
+
+    const list1Ref = useRef(null);
+    const list2Ref = useRef(null);
+
+    const handleClickOutside = useCallback((event) => {
+
+        if (list1Ref.current && !list1Ref.current.contains(event.target)) {
+            setDisplayDropList((prev) => ({ ...prev, list1: false }));
+        }
+
+        if (list2Ref.current && !list2Ref.current.contains(event.target)) {
+            setDisplayDropList((prev) => ({ ...prev, list2: false }));
+        }
+
+    }, []);
+
+    useEffect(() => {
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+
+    }, [handleClickOutside]);
 
     // ====== handle-showing-password ====== //
 
@@ -135,7 +158,7 @@ export default function Register() {
 
                     </div>
 
-                    <div className={formCSS.input_cont}>
+                    <div ref={list1Ref} className={formCSS.input_cont}>
 
                         <label htmlFor="timezone">
                             <span className={formCSS.label}>Timezone :</span>
@@ -232,7 +255,7 @@ export default function Register() {
 
                     </div>
 
-                    <div className={formCSS.input_cont}>
+                    <div ref={list2Ref} className={formCSS.input_cont}>
 
                         <label htmlFor="countryCode">
                             <span className={formCSS.label}>Country Code :</span>
