@@ -94,6 +94,7 @@
     gap: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap;
     color: var(--f-white-color-05);
 
 }
@@ -171,6 +172,12 @@
 
 }
 
+.phone_links{
+
+    display: none;
+
+}
+
 /* ====== responsive-style ====== */
 
 @media(max-width: 900px){
@@ -183,6 +190,12 @@
     }
 
     .logo button{
+
+        display: flex;
+
+    }
+
+    .phone_links{
 
         display: flex;
 

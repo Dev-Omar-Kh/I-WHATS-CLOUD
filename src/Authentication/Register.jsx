@@ -7,11 +7,16 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import authCSS from './auth.module.css';
 import formCSS from '../Styles/forms.module.css';
 import Auth from './Auth';
-import { IoIosArrowForward, IoMdAddCircleOutline } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward, IoMdAddCircleOutline } from 'react-icons/io';
 import moment from 'moment-timezone';
 import { countries } from 'country-data';
+import { useTranslation } from 'react-i18next';
 
 export default function Register() {
+
+    // ====== translate-hook ====== //
+
+    const {t , i18n} = useTranslation();
 
     // ====== fetch-timezone ====== //
 
@@ -131,37 +136,49 @@ export default function Register() {
 
                     <div className={authCSS.form_header}>
                         <IoMdAddCircleOutline />
-                        <span>Register</span>
+                        <span>{t('registerWord')}</span>
                     </div>
 
                     <div className={formCSS.input_cont}>
 
-                        <div className={formCSS.loader}></div>
+                        <div 
+                            className={formCSS.loader} 
+                            style={i18n.language === 'en' ? {right: '10px'} : {left: '10px'}}
+                        ></div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Name :</span>
+                            <span className={formCSS.label}>{t('nameInputLabel')} :</span>
                         </label>
 
-                        <input type="text" id="name" placeholder='Enter your full name' />
+                        <input 
+                            type="text" id="name" placeholder={t('nameInputPlaceholder')} 
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
                     <div className={formCSS.input_cont}>
 
-                        <div className={formCSS.loader}></div>
+                        <div 
+                            className={formCSS.loader} 
+                            style={i18n.language === 'en' ? {right: '10px'} : {left: '10px'}}
+                        ></div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Email :</span>
+                            <span className={formCSS.label}>{t('emailInputLabel')} :</span>
                         </label>
 
-                        <input type="text" id="email" placeholder='Enter your email' />
+                        <input 
+                            type="text" id="email" placeholder={t('emailInputPlaceholder')} 
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
                     <div ref={list1Ref} className={formCSS.input_cont}>
 
                         <label htmlFor="timezone">
-                            <span className={formCSS.label}>Timezone :</span>
+                            <span className={formCSS.label}>{t('timezoneInputLabel')} :</span>
                         </label>
 
                         <div className={formCSS.select_cont}>
@@ -177,12 +194,17 @@ export default function Register() {
                                         ? 'var(--b-gray-color)' : 'var(--r-black-color)'
                                     }}
                                 >{selectedTimezone || 'Select timezone'}</p>
-                                <IoIosArrowForward 
+                                {i18n.language === 'en' ? <IoIosArrowForward 
                                     style={{
                                         rotate: displayDropList.list1 ? '90deg' : '0deg' , 
                                         color: displayDropList.list1 ? 'var(--m-green-color)' : 'var(--b-gray-color)'
                                     }} 
-                                />
+                                /> : <IoIosArrowBack 
+                                    style={{
+                                        rotate: displayDropList.list1 ? '-90deg' : '0deg' , 
+                                        color: displayDropList.list1 ? 'var(--m-green-color)' : 'var(--b-gray-color)'
+                                    }} 
+                                />}
                             </div>
 
                             <AnimatePresence>
@@ -258,7 +280,7 @@ export default function Register() {
                     <div ref={list2Ref} className={formCSS.input_cont}>
 
                         <label htmlFor="countryCode">
-                            <span className={formCSS.label}>Country Code :</span>
+                            <span className={formCSS.label}>{t('countryCodeInputLabel')} :</span>
                         </label>
 
                         <div className={formCSS.select_cont}>
@@ -274,12 +296,17 @@ export default function Register() {
                                         ? 'var(--b-gray-color)' : 'var(--r-black-color)'
                                     }}
                                 >{selectedCountryCode || 'Select country code'}</p>
-                                <IoIosArrowForward 
+                                {i18n.language === 'en' ? <IoIosArrowForward 
                                     style={{
                                         rotate: displayDropList.list2 ? '90deg' : '0deg' , 
                                         color: displayDropList.list2 ? 'var(--m-green-color)' : 'var(--b-gray-color)'
                                     }} 
-                                />
+                                /> : <IoIosArrowBack 
+                                    style={{
+                                        rotate: displayDropList.list2 ? '-90deg' : '0deg' , 
+                                        color: displayDropList.list2 ? 'var(--m-green-color)' : 'var(--b-gray-color)'
+                                    }} 
+                                />}
                             </div>
 
                             <AnimatePresence>
@@ -355,7 +382,10 @@ export default function Register() {
 
                     <div className={formCSS.input_cont}>
 
-                        <div onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}>
+                        <div 
+                            onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}
+                            style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}
+                        >
                             {password ?
                                 <motion.span key={'h1'} variants={eyeVariants}><BsEyeSlash /></motion.span> :
                                 <motion.span key={'s1'} variants={eyeVariants}><BsEye /></motion.span>
@@ -363,16 +393,23 @@ export default function Register() {
                         </div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Password :</span>
+                            <span className={formCSS.label}>{t('passwordInputLabel')} :</span>
                         </label>
 
-                        <input type={password ? "text" : "password"} id="password" placeholder='Enter your password' />
+                        <input 
+                            type={password ? "text" : "password"} id="password" 
+                            placeholder={t('passwordInputPlaceholder')}
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
                     <div className={formCSS.input_cont}>
 
-                        <div onClick={() => displayingPassword(confirmPassword , setConfirmPassword)} className={formCSS.eyes_cont}>
+                        <div onClick={() => 
+                            displayingPassword(confirmPassword , setConfirmPassword)} className={formCSS.eyes_cont}
+                            style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}
+                        >
                             {confirmPassword ?
                                 <motion.span key={'h1'} variants={eyeVariants}><BsEyeSlash /></motion.span> :
                                 <motion.span key={'s1'} variants={eyeVariants}><BsEye /></motion.span>
@@ -380,27 +417,26 @@ export default function Register() {
                         </div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Confirm Password :</span>
+                            <span className={formCSS.label}>{t('confirmPasswordInputLabel')} :</span>
                         </label>
 
-                        <input type={confirmPassword ? "text" : "password"} id="confirmPassword" placeholder='Confirm your password' />
+                        <input 
+                            type={confirmPassword ? "text" : "password"} 
+                            id="confirmPassword" placeholder={t('confirmPasswordInputPlaceholder')}
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
-                    <Link to={'/login'} className={formCSS.form_link}>Already have an account?</Link>
+                    <Link to={'/login'} className={formCSS.form_link}>{t('haveAnAccount')}</Link>
 
-                    <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>Register</motion.button>
+                    <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>{t('registerWord')}</motion.button>
 
                 </motion.form>
 
             </div>
 
-            <Auth 
-                message={`
-                    Welcome to I-Whats-Cloud. Please create an account to access the site's features. 
-                    If you already have an account, kindly log in to continue.
-                `} 
-            />
+            <Auth message={t('registerSlogan')}  />
 
         </div>
 

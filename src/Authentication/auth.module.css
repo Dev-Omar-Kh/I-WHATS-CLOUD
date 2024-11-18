@@ -5,11 +5,13 @@
     min-height: 100svh;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 
 }
 
 .auth_cont{
 
+    position: relative;
     width: calc(100% - 450px);
     min-height: 100svh;
     max-height: 100%;
@@ -26,6 +28,13 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
+}
+
+.big_cont_tr{
+
+    position: absolute;
+    top: 20px;
 
 }
 
@@ -68,21 +77,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-
-}
-
-.more button{
-
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 1.25rem;
-    color: var(--f-white-color);
-    border: none;
-    border-radius: 5px;
-    background-color: var(--m-green-color);
-    cursor: pointer;
 
 }
 

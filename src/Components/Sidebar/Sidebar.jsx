@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { 
     IoBarChartOutline, IoChatboxEllipsesOutline, 
+    IoLayersOutline, 
     IoLinkOutline, IoLogoReddit, IoLogoWhatsapp, IoNewspaperOutline, IoPeopleOutline, IoSaveOutline, 
+    IoTicketOutline, 
     IoUnlinkOutline
 } from 'react-icons/io5';
-import { IoIosArrowForward, IoIosCloseCircleOutline } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward, IoIosCloseCircleOutline, IoMdCheckmarkCircleOutline } from 'react-icons/io';
 
 import sidebarCSS from './sidebar.module.css';
+import { useTranslation } from 'react-i18next';
 // import './active.css';
 
 export default function Sidebar({displayPhoneNav}) {
+
+    // ====== translate-hook ====== //
+
+    const {t, i18n} = useTranslation();
+
+    useEffect(() => {
+
+        document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = i18n.language;
+
+    }, [i18n.language]);
 
     // ====== display-list ====== //
 
@@ -52,13 +66,13 @@ export default function Sidebar({displayPhoneNav}) {
                 <div className={sidebarCSS.nav_sec}>
 
                     <p className={sidebarCSS.nav_sec_header}>
-                        Dashboard
+                        {t('sideBarSectionDashboard')}
                         <span></span>
                     </p>
 
                     <NavLink to={'/'} className='side_bar_link'>
                         <IoBarChartOutline />
-                        <span>Overview</span>
+                        <span>{t('sideBarLinkOverview')}</span>
                     </NavLink>
 
                     <>
@@ -70,11 +84,16 @@ export default function Sidebar({displayPhoneNav}) {
                         >
                             <div>
                                 <IoLogoWhatsapp />
-                                <span>WhatsApp</span>
+                                <span>{t('sideBarLinkWhatsApp')}</span>
                             </div>
-                            <div style={{rotate: displayList.list1 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
-                                <IoIosArrowForward />
-                            </div>
+                            {i18n.language === 'en' ? 
+                                <div style={{rotate: displayList.list1 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowForward />
+                                </div> :
+                                <div style={{rotate: displayList.list1 ? '-90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowBack />
+                                </div>
+                            }
                         </button>
 
                         <AnimatePresence>
@@ -84,12 +103,12 @@ export default function Sidebar({displayPhoneNav}) {
                                 className={sidebarCSS.link_det}
                             >
 
-                                <li><NavLink>Queue</NavLink></li>
-                                <li><NavLink>Sent</NavLink></li>
-                                <li><NavLink>Received</NavLink></li>
-                                <li><NavLink>Campaigns</NavLink></li>
-                                <li><NavLink>Scheduled</NavLink></li>
-                                <li><NavLink>Groups</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkQueue')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkSent')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkReceived')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkCampaigns')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkScheduled')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkGroups')}</NavLink></li>
 
                             </motion.ul>}
 
@@ -106,11 +125,16 @@ export default function Sidebar({displayPhoneNav}) {
                         >
                             <div>
                                 <IoChatboxEllipsesOutline />
-                                <span>SMS</span>
+                                <span>{t('sideBarLinkSMS')}</span>
                             </div>
-                            <div style={{rotate: displayList.list2 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
-                                <IoIosArrowForward />
-                            </div>
+                            {i18n.language === 'en' ? 
+                                <div style={{rotate: displayList.list2 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowForward />
+                                </div> :
+                                <div style={{rotate: displayList.list2 ? '-90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowBack />
+                                </div>
+                            }
                         </button>
 
                         <AnimatePresence>
@@ -120,11 +144,11 @@ export default function Sidebar({displayPhoneNav}) {
                                 className={sidebarCSS.link_det}
                             >
 
-                                <li><NavLink>Queue</NavLink></li>
-                                <li><NavLink>Sent</NavLink></li>
-                                <li><NavLink>Received</NavLink></li>
-                                <li><NavLink>Campaigns</NavLink></li>
-                                <li><NavLink>Scheduled</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkQueue')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkSent')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkReceived')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkCampaigns')}</NavLink></li>
+                                <li><NavLink>{t('sideBarSecondeLinkScheduled')}</NavLink></li>
 
                             </motion.ul>}
 
@@ -141,11 +165,16 @@ export default function Sidebar({displayPhoneNav}) {
                         >
                             <div>
                                 <IoLinkOutline />
-                                <span>Hosts</span>
+                                <span>{t('sideBarLinkHosts')}</span>
                             </div>
-                            <div style={{rotate: displayList.list3 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
-                                <IoIosArrowForward />
-                            </div>
+                            {i18n.language === 'en' ? 
+                                <div style={{rotate: displayList.list3 ? '90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowForward />
+                                </div> :
+                                <div style={{rotate: displayList.list3 ? '-90deg' : '0deg'}} className={sidebarCSS.arrowList}>
+                                    <IoIosArrowBack />
+                                </div>
+                            }
                         </button>
 
                         <AnimatePresence>
@@ -155,8 +184,8 @@ export default function Sidebar({displayPhoneNav}) {
                                 className={sidebarCSS.link_det}
                             >
 
-                                <li><NavLink>WhatsApp</NavLink></li>
-                                <li><NavLink>Android</NavLink></li>
+                                <li><NavLink>{t('hostWhatsApp')}</NavLink></li>
+                                <li><NavLink>{t('hostAndroid')}</NavLink></li>
 
                             </motion.ul>}
 
@@ -169,23 +198,23 @@ export default function Sidebar({displayPhoneNav}) {
                 <div className={sidebarCSS.nav_sec}>
 
                     <p className={sidebarCSS.nav_sec_header}>
-                        Contacts
+                        {t('sideBarSectionContact')}
                         <span></span>
                     </p>
 
                     <NavLink className='side_bar_link'>
                         <IoSaveOutline />
-                        <span>Saved</span>
+                        <span>{t('sideBarLinkSaved')}</span>
                     </NavLink>
 
                     <NavLink className='side_bar_link'>
                         <IoPeopleOutline />
-                        <span>Groups</span>
+                        <span>{t('sideBarLinkGroups')}</span>
                     </NavLink>
 
                     <NavLink className='side_bar_link'>
                         <IoUnlinkOutline />
-                        <span>Unsubscribe</span>
+                        <span>{t('sideBarLinkUnSubscribe')}</span>
                     </NavLink>
 
                 </div>
@@ -193,18 +222,42 @@ export default function Sidebar({displayPhoneNav}) {
                 <div className={sidebarCSS.nav_sec}>
 
                     <p className={sidebarCSS.nav_sec_header}>
-                        Tools
+                        {t('sideBarSectionTools')}
                         <span></span>
                     </p>
 
                     <NavLink className='side_bar_link'>
                         <IoLogoReddit />
-                        <span>Actions</span>
+                        <span>{t('sideBarLinkActions')}</span>
                     </NavLink>
 
                     <NavLink className='side_bar_link'>
                         <IoNewspaperOutline />
-                        <span>Templates</span>
+                        <span>{t('sideBarLinkTemplates')}</span>
+                    </NavLink>
+
+                </div>
+
+                <div className={`${sidebarCSS.nav_sec} ${sidebarCSS.phone_links}`}>
+
+                    <p className={sidebarCSS.nav_sec_header}>
+                        {t('sideBarSectionServices')}
+                        <span></span>
+                    </p>
+
+                    <NavLink className='side_bar_link'>
+                        <IoMdCheckmarkCircleOutline />
+                        <span>{t('headerLinkSub')}</span>
+                    </NavLink>
+
+                    <NavLink className='side_bar_link'>
+                        <IoLayersOutline />
+                        <span>{t('headerLinkPackages')}</span>
+                    </NavLink>
+
+                    <NavLink className='side_bar_link'>
+                        <IoTicketOutline />
+                        <span>{t('headerLinkRedeem')}</span>
                     </NavLink>
 
                 </div>

@@ -8,8 +8,13 @@ import authCSS from './auth.module.css';
 import formCSS from '../Styles/forms.module.css';
 import Auth from './Auth';
 import { IoMdUnlock } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
+
+    // ====== translate-hook ====== //
+
+    const {t , i18n} = useTranslation();
 
     // ====== handle-showing-password ====== //
 
@@ -56,24 +61,33 @@ export default function Login() {
 
                     <div className={authCSS.form_header}>
                         <IoMdUnlock />
-                        <span>Login</span>
+                        <span>{t('loginWord')}</span>
                     </div>
 
                     <div className={formCSS.input_cont}>
 
-                        <div className={formCSS.loader}></div>
+                        <div 
+                            className={formCSS.loader} 
+                            style={i18n.language === 'en' ? {right: '10px'} : {left: '10px'}}
+                        ></div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Email :</span>
+                            <span className={formCSS.label}>{t('emailInputLabel')} :</span>
                         </label>
 
-                        <input type="text" id="email" placeholder='Enter your email' />
+                        <input 
+                            type="text" id="email" placeholder={t('emailInputPlaceholder')} 
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
                     <div className={formCSS.input_cont}>
 
-                        <div onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}>
+                        <div 
+                            onClick={() => displayingPassword(password , setPassword)} className={formCSS.eyes_cont}
+                            style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}
+                        >
                             {password ?
                                 <motion.span key={'h1'} variants={eyeVariants}><BsEyeSlash /></motion.span> :
                                 <motion.span key={'s1'} variants={eyeVariants}><BsEye /></motion.span>
@@ -81,27 +95,25 @@ export default function Login() {
                         </div>
 
                         <label htmlFor="">
-                            <span className={formCSS.label}>Password :</span>
+                            <span className={formCSS.label}>{t('passwordInputLabel')} :</span>
                         </label>
 
-                        <input type={password ? "text" : "password"} id="password" placeholder='Enter your password' />
+                        <input 
+                            type={password ? "text" : "password"} id="password" placeholder={t('passwordInputPlaceholder')} 
+                            style={i18n.language === 'en' ? {paddingRight: '40px'} : {paddingLeft: '40px'}}
+                        />
 
                     </div>
 
-                    <Link to={'/register'} className={formCSS.form_link}>Don't have an account?</Link>
+                    <Link to={'/register'} className={formCSS.form_link}>{t('doNotHaveAnAccount')}</Link>
 
-                    <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>Login</motion.button>
+                    <motion.button whileTap={{scale: 0.95}} className={formCSS.submit}>{t('loginWord')}</motion.button>
 
                 </motion.form>
 
             </div>
 
-            <Auth 
-                message={`
-                    Welcome back to I-Whats-Cloud. Please log in to access the site's features. 
-                    If you don't have an account, kindly create one to get started.
-                `} 
-            />
+            <Auth message={t('loginSlogan')} />
 
         </div>
 

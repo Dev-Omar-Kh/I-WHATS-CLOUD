@@ -13,6 +13,7 @@
     width: 280px;
     height: 100%;
     padding-right: 0px;
+    z-index: 150;
 
 }
 
@@ -25,17 +26,10 @@
 
 }
 
-.header{
-
-    width: 100%;
-    height: 60px;
-
-}
-
 .pages_cont{
 
     width: 100%;
-    height: calc(100% - 60px);
+    height: 100%;
     background-color: var(--f-white-color);
 
 }
@@ -47,8 +41,7 @@
     .side_bar{
 
         position: fixed;
-        top: 0;
-        left: -320px;
+        
         width: 100%;
         opacity: 0;
         visibility: hidden;
@@ -56,9 +49,31 @@
 
     }
 
-    .display_side_bar{
+    .side_bar_hidden_en{
+
+        top: 0;
+        left: -320px;
+
+    }
+
+    .side_bar_hidden_ar{
+
+        top: 0;
+        right: -320px;
+
+    }
+
+    .display_side_bar_en{
 
         left: 0px;
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    .display_side_bar_ar{
+
+        right: 0px;
         opacity: 1;
         visibility: visible;
 
