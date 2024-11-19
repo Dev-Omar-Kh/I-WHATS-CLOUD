@@ -190,10 +190,10 @@ export default function Register() {
                             >
                                 <p
                                     style={{
-                                        color: selectedTimezone === 'Select timezone' || selectedTimezone === ''
+                                        color: selectedTimezone === t('timezoneInputPlaceholder') || selectedTimezone === ''
                                         ? 'var(--b-gray-color)' : 'var(--r-black-color)'
                                     }}
-                                >{selectedTimezone || 'Select timezone'}</p>
+                                >{selectedTimezone || t('timezoneInputPlaceholder')}</p>
                                 {i18n.language === 'en' ? <IoIosArrowForward 
                                     style={{
                                         rotate: displayDropList.list1 ? '90deg' : '0deg' , 
@@ -224,7 +224,7 @@ export default function Register() {
 
                                         {filteredTimezones.length === 0 ?
                                             <div className={formCSS.option}>
-                                                <p>No results found</p>
+                                                <p>{t('selectNoResult')}</p>
                                             </div> : 
                                             (
 
@@ -234,16 +234,17 @@ export default function Register() {
                                                         className={`
                                                             ${formCSS.option} 
                                                             ${
-                                                                selectedTimezone === 'Select timezone' || selectedTimezone === ''? 
+                                                                selectedTimezone === t('timezoneInputPlaceholder') 
+                                                                || selectedTimezone === ''? 
                                                                 formCSS.selected_option: ''
                                                             }
                                                         `}
                                                         onClick={() => {
-                                                            setSelectedTimezone('Select timezone');
+                                                            setSelectedTimezone(t('timezoneInputPlaceholder'));
                                                             toggleDropList('list1');
                                                         }}
                                                     >
-                                                        <p>Select timezone</p>
+                                                        <p>{t('timezoneInputPlaceholder')}</p>
                                                     </div>
 
                                                     {filteredTimezones.map((zone , idx) => 
@@ -292,10 +293,10 @@ export default function Register() {
                             >
                                 <p
                                     style={{
-                                        color: selectedCountryCode === 'Select country code' || selectedCountryCode === ''
+                                        color: selectedCountryCode === t('countryCodeInputPlaceholder') || selectedCountryCode === ''
                                         ? 'var(--b-gray-color)' : 'var(--r-black-color)'
                                     }}
-                                >{selectedCountryCode || 'Select country code'}</p>
+                                >{selectedCountryCode || t('countryCodeInputPlaceholder')}</p>
                                 {i18n.language === 'en' ? <IoIosArrowForward 
                                     style={{
                                         rotate: displayDropList.list2 ? '90deg' : '0deg' , 
@@ -326,7 +327,7 @@ export default function Register() {
 
                                         {filteredCountryCode.length === 0 ?
                                             <div className={formCSS.option}>
-                                                <p>No results found</p>
+                                                <p>{t('selectNoResult')}</p>
                                             </div> : 
                                             (
 
@@ -336,17 +337,17 @@ export default function Register() {
                                                         className={`
                                                             ${formCSS.option} 
                                                             ${
-                                                                selectedCountryCode === 'Select country code' 
+                                                                selectedCountryCode === t('countryCodeInputPlaceholder') 
                                                                 || selectedCountryCode === ''? 
                                                                 formCSS.selected_option: ''
                                                             }
                                                         `}
                                                         onClick={() => {
-                                                            setSelectedCountryCode('Select country code');
+                                                            setSelectedCountryCode(t('countryCodeInputPlaceholder'));
                                                             toggleDropList('list2');
                                                         }}
                                                     >
-                                                        <p>Select country code</p>
+                                                        <p>{t('countryCodeInputPlaceholder')}</p>
                                                     </div>
 
                                                     {filteredCountryCode.map((cd , idx) => 

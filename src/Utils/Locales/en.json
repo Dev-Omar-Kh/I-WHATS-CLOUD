@@ -12,6 +12,7 @@
     "emailInputPlaceholder": "Enter your email",
     "timezoneInputPlaceholder": "Select timezone",
     "countryCodeInputPlaceholder": " Select country code",
+    "selectNoResult": "No results found",
     "passwordInputPlaceholder": "Enter your password",
     "confirmPasswordInputPlaceholder": "Confirm your password",
     "haveAnAccount": "Already have an account?",

@@ -12,6 +12,7 @@
     "emailInputPlaceholder": "أدخل بريدك الإلكتروني",
     "timezoneInputPlaceholder": "اختر المنطقة الزمنية",
     "countryCodeInputPlaceholder": "اختر رمز الدولة",
+    "selectNoResult": "لا يوجد بيانات",
     "passwordInputPlaceholder": "أدخل كلمة المرور",
     "confirmPasswordInputPlaceholder": "أكد كلمة المرور",
     "haveAnAccount": "هل لديك حساب؟",
