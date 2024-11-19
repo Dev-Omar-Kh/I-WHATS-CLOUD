@@ -90,7 +90,7 @@ export default function TrBtn({wbg , phone}) {
                     /> :
                     <IoIosArrowBack 
                         className={`
-                            ${displayLangs ? trBtnCSS.rotate_positive : ''}
+                            ${displayLangs ? trBtnCSS.rotate_negative : ''}
                             ${displayLangs && phone ? trBtnCSS.rotate_positive_ph : ''}
                         `} 
                     />
