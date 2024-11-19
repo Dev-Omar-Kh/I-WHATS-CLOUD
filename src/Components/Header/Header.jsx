@@ -46,9 +46,9 @@ export default function Header({displayPhoneNav}) {
 
             <div className={headerCSS.setting}>
 
-                <div className={headerCSS.translate}>
+                <div className={headerCSS.translate} style={i18n.language === 'en' ? {right: '10px'} : {left: '10px'}}>
 
-                    <TrBtn wbg={false} />
+                    <TrBtn wbg={false} phone={true} />
 
                 </div>
 

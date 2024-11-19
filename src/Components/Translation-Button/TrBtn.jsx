@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Flag from 'react-world-flags';
 import { useTranslation } from 'react-i18next';
 
-export default function TrBtn({wbg}) {
+export default function TrBtn({wbg , phone}) {
 
     // ====== display-langs ====== //
 
@@ -82,16 +82,29 @@ export default function TrBtn({wbg}) {
             <button onClick={toggleLangsList} className={`${trBtnCSS.tr_btn}`} style={wbg ? whiteBg : greenBg}>
                 <IoLanguage />
                 {i18n.language === 'en' ? 
-                    <IoIosArrowForward style={{rotate: displayLangs ? '90deg' : '0deg'}} /> :
-                    <IoIosArrowBack style={{rotate: displayLangs ? '-90deg' : '0deg'}} />
+                    <IoIosArrowForward 
+                        className={`
+                            ${displayLangs ? trBtnCSS.rotate_positive : ''}
+                            ${displayLangs && phone ? trBtnCSS.rotate_negative_ph : ''}
+                        `} 
+                    /> :
+                    <IoIosArrowBack 
+                        className={`
+                            ${displayLangs ? trBtnCSS.rotate_positive : ''}
+                            ${displayLangs && phone ? trBtnCSS.rotate_positive_ph : ''}
+                        `} 
+                    />
                 }
             </button>
 
             <AnimatePresence>
 
                 {displayLangs && <motion.ul 
-                    className={trBtnCSS.tr_list}
-                    style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}
+                    className={`
+                        ${trBtnCSS.tr_list}
+                        ${i18n.language === 'en' ? trBtnCSS.right_position : trBtnCSS.left_position}
+                        ${phone ? trBtnCSS.to_top : ''}
+                    `}
                     variants={displayList} initial='hidden' animate='visible' exit={'hidden'}
                 >
 
