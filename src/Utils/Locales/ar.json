@@ -47,6 +47,13 @@
 
     "headerLinkSub": "الاشتراك",
     "headerLinkPackages": "الحزم",
-    "headerLinkRedeem": "كوبون"
+    "headerLinkRedeem": "كوبون",
+
+    "titleActionGateways": "البوابات",
+    "titleActionPartners": "الشركاء",
+
+    "overviewTitleFinancial": "الادارة المالية",
+    "overviewTitleWhatsApp": "الواتساب",
+    "overviewTitleSMS": "الرسائل النصية"
 
 }

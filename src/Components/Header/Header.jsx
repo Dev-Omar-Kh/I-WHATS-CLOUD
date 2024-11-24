@@ -2,9 +2,9 @@ import React from 'react';
 
 import headerCSS from './header.module.css';
 import { Link } from 'react-router-dom';
-import { IoIosArrowBack, IoIosArrowForward, IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
-import { IoLayersOutline, IoMenu, IoTicketOutline } from 'react-icons/io5';
+import { IoLayersOutline, IoMenu, IoSettingsOutline, IoTicketOutline } from 'react-icons/io5';
 import TrBtn from '../Translation-Button/TrBtn';
 
 export default function Header({displayPhoneNav}) {
@@ -52,15 +52,32 @@ export default function Header({displayPhoneNav}) {
 
                 </div>
 
-                <div className={headerCSS.profile}>
+                <Link className={headerCSS.profile}>
 
                     <img src={require('../../Images/pfp.png')} alt="" />
 
-                    <span style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}>
-                        {i18n.language === 'en' ? <IoIosArrowForward /> : <IoIosArrowBack />}
+                    <span className={headerCSS.setting_icon} style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}>
+                        <IoSettingsOutline />
                     </span>
 
-                </div>
+                    {/* <div 
+                        className={headerCSS.profile_det}
+                        style={i18n.language === 'en' ? {right: '0px'} : {left: '0px'}}
+                    >
+
+                        <Link>
+                            <IoPerson />
+                            <span>Profile</span>
+                        </Link>
+
+                        <button>
+                            <IoLogOutOutline />
+                            <span>Logout</span>
+                        </button>
+
+                    </div> */}
+
+                </Link>
 
             </div>
 

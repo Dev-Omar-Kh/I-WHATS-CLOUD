@@ -1,0 +1,195 @@
+.container{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.over_cards_cont{
+
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 20px;
+
+}
+
+.over_card{
+
+    width: calc(25% - 7.5px);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px var(--shadow-color);
+
+}
+
+.title{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--r-black-color);
+
+}
+
+.title svg{
+
+    font-size: 1.5rem;
+    color: var(--m-green-color);
+
+}
+
+.card_det{
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+.det_title{
+
+    font-size: 1rem;
+    color: var(--b-gray-color);
+
+}
+
+.det_count{
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--r-black-color);
+
+}
+
+.card_icon{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--m-green-color);
+
+}
+
+.financial_card{
+
+    width: calc(50% - 5px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px var(--shadow-color);
+
+}
+
+.financial_title{
+
+    padding: 20px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--r-black-color);
+
+}
+
+.financial_count{
+
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-block: 1px solid var(--shadow-color);
+
+}
+
+.financial_count p{
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--r-black-color);
+
+}
+
+.financial_count span{
+
+    padding: 5px;
+    font-size: 0.65rem;
+    border-radius: 5px;
+    background-color: var(--shadow-color);
+    color: var(--r-black-color);
+
+}
+
+.financial_action{
+
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.financial_action a{
+
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--f-white-color);
+    border-radius: 5px;
+    background-color: var(--m-green-color);
+
+}
+
+/* ====== responsive-style ====== */
+
+@media (max-width: 1030px) and (min-width: 900px){
+
+    .over_card{
+
+        width: calc((100% / 3) - (10px - (10px / 3)));
+
+    }
+
+}
+
+@media(max-width: 760px){
+
+    .over_card{
+
+        width: calc(50% - 5px);
+
+    }
+
+    .financial_card{
+
+        width: 100%;
+
+    }
+
+    .financial_action a{
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+    }
+
+}
+
+@media(max-width: 440px){
+
+    .over_card{
+
+        width: 100%;
+
+    }
+
+}

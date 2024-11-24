@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-import { IoLanguage } from 'react-icons/io5';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward, IoIosGlobe } from 'react-icons/io';
 
 import trBtnCSS from './tr_btn.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -80,7 +79,7 @@ export default function TrBtn({wbg , phone}) {
         <div ref={langListRef} className={trBtnCSS.container}>
 
             <button onClick={toggleLangsList} className={`${trBtnCSS.tr_btn}`} style={wbg ? whiteBg : greenBg}>
-                <IoLanguage />
+                <IoIosGlobe />
                 {i18n.language === 'en' ? 
                     <IoIosArrowForward 
                         className={`

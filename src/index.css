@@ -20,6 +20,7 @@
     --f-white-color: #FCF5EB;
     --b-gray-color: #888F93;
     --white-color: #FFFFFF;
+    --error-color: #ff0000;
 
     /* === custom-colors === */
 
@@ -84,6 +85,13 @@ a {
 ul {
 
     list-style: none;
+
+}
+
+.db_container{
+
+    padding-inline: 2.25%;
+    margin-bottom: 50px;
 
 }
 

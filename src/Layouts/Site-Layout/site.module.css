@@ -3,7 +3,7 @@
     width: 100%;
     height: 100svh;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: var(--m-green-color);
 
 }
@@ -31,6 +31,7 @@
     width: 100%;
     height: 100%;
     background-color: var(--f-white-color);
+    overflow: auto;
 
 }
 

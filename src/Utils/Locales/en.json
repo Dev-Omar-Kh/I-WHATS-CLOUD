@@ -47,6 +47,13 @@
 
     "headerLinkSub": "Subscription",
     "headerLinkPackages": "Packages",
-    "headerLinkRedeem": "Redeem"
+    "headerLinkRedeem": "Redeem",
+
+    "titleActionGateways": "Gateways",
+    "titleActionPartners": "Partners",
+
+    "overviewTitleFinancial": "Financial Management",
+    "overviewTitleWhatsApp": "WhatsApp",
+    "overviewTitleSMS": "SMS"
 
 }

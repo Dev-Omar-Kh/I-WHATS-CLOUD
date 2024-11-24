@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import Register from './Authentication/Register';
 import Login from './Authentication/Login';
 import SiteLayout from './Layouts/Site-Layout/SiteLayout';
+import Overview from './Pages/Overview/Overview';
 import { useTranslation } from 'react-i18next';
 
 const routes = createHashRouter(
@@ -15,7 +16,11 @@ const routes = createHashRouter(
 
         // ====== site-routes ====== //
 
-        {path: '/', element: <SiteLayout />}
+        {path: '/', element: <SiteLayout /> , children: [
+
+            {path: '/' , element: <Overview />}
+            
+        ]}
 
     ] , 
     
